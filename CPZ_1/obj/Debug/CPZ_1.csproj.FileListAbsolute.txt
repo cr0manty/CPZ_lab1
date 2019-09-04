@@ -1,0 +1,6 @@
+C:\Users\Cr0manty\source\repos\CPZ_1\CPZ_1\bin\Debug\CPZ_1.exe.config
+C:\Users\Cr0manty\source\repos\CPZ_1\CPZ_1\bin\Debug\CPZ_1.exe
+C:\Users\Cr0manty\source\repos\CPZ_1\CPZ_1\bin\Debug\CPZ_1.pdb
+C:\Users\Cr0manty\source\repos\CPZ_1\CPZ_1\obj\Debug\CPZ_1.csprojAssemblyReference.cache
+C:\Users\Cr0manty\source\repos\CPZ_1\CPZ_1\obj\Debug\CPZ_1.exe
+C:\Users\Cr0manty\source\repos\CPZ_1\CPZ_1\obj\Debug\CPZ_1.pdb
