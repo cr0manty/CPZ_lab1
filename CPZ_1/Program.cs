@@ -7,26 +7,69 @@ using System.Threading.Tasks;
 namespace CPZ_1
 {
     class Program
-    {
-        static BankBill input()
+    { 
+        private static CoffeeMachine.COFFE_TYPES[] make_array()
         {
-            string full_name;
-            string bill_number;
-            float amount;
+            List<CoffeeMachine.COFFE_TYPES> coffe_type = 
+                new List<CoffeeMachine.COFFE_TYPES>();
 
-            Console.WriteLine("Enter full name:");
-            full_name = Console.ReadLine();
-            Console.WriteLine("Enter biill number(8 digits):");
-            bill_number = Console.ReadLine();
-            Console.WriteLine("Enter the amount in the bill:");
-            amount = Console.Read();
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.CAPPUCINO);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.AMERICANO);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.ESPRESSO);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.LATTE);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.AMERICANO);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.CAPPUCINO);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.LATTE);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.AMERICANO);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.CAPPUCINO);
+            coffe_type.Add(CoffeeMachine.COFFE_TYPES.ESPRESSO);
 
-            return new BankBill(full_name, bill_number, amount);
+
+            return coffe_type.ToArray();
         }
 
         static void Main(string[] args)
         {
-            BankBill bill = input();
+            Console.WriteLine("Enter machine name:");
+            string name = Console.ReadLine();
+            Console.Clear();
+            try
+            {
+                CoffeeMachine machine = new CoffeeMachine(name);
+
+                Console.WriteLine("Machine name: " + machine.ModelName);
+                Console.WriteLine("______________________________");
+                Console.WriteLine("Try to make 1 coffee");
+                Console.WriteLine("..............................");
+                machine.make_cup(CoffeeMachine.COFFE_TYPES.AMERICANO, 50);
+                Console.WriteLine("______________________________");
+
+                Console.WriteLine("Trt to make array coffee");
+                Console.WriteLine("..............................");
+                machine.make_cups(make_array(), 1000);
+                Console.WriteLine("______________________________");
+
+                Console.WriteLine("Refill Coffee/Water/Milk/Sugar");
+                Console.WriteLine("..............................");
+                machine.Coffee = 40;
+                machine.Water = 20;
+                machine.Milk = 50;
+                machine.Sugar = 10;
+                Console.WriteLine("______________________________");
+
+                Console.WriteLine("Machine cash");
+                Console.WriteLine("..............................");
+                Console.WriteLine(machine.Cash);
+                Console.WriteLine("______________________________");
+
+                Console.WriteLine("Error: Not enought...");
+                Console.WriteLine("..............................");
+                machine.make_cup(CoffeeMachine.COFFE_TYPES.AMERICANO, 50);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
             Console.Read();
         }
