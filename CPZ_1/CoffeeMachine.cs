@@ -126,7 +126,7 @@ namespace CPZ_1
         {
             int value = (int)_type;
 
-            if ((int)_type > _money)
+            if (value > _money)
                 throw new Exception("Not enough money!");
 
             this.cash += _money;
