@@ -24,7 +24,6 @@ namespace CPZ_1
             coffe_type.Add(CoffeeMachine.COFFE_TYPES.CAPPUCINO);
             coffe_type.Add(CoffeeMachine.COFFE_TYPES.ESPRESSO);
 
-
             return coffe_type.ToArray();
         }
 
@@ -41,12 +40,17 @@ namespace CPZ_1
                 Console.WriteLine("______________________________");
                 Console.WriteLine("Try to make 1 coffee");
                 Console.WriteLine("..............................");
-                machine.make_cup(CoffeeMachine.COFFE_TYPES.AMERICANO, 50);
+                Console.WriteLine("Your odd money is : " + Convert.ToString(
+                    machine.make_cup(CoffeeMachine.COFFE_TYPES.AMERICANO, 50))
+                    );
                 Console.WriteLine("______________________________");
 
                 Console.WriteLine("Trt to make array coffee");
                 Console.WriteLine("..............................");
-                machine.make_cups(make_array(), 1000);
+                Console.WriteLine("Your odd money is : " + Convert.ToString(
+                    machine.make_cups(make_array(), 1000))
+                    );
+                
                 Console.WriteLine("______________________________");
 
                 Console.WriteLine("Refill Coffee/Water/Milk/Sugar");

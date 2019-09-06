@@ -122,11 +122,11 @@ namespace CPZ_1
             this.sugar = max_sugar;
         }
         
-        public void make_cup(COFFE_TYPES _type, double _money)
+        public double make_cup(COFFE_TYPES _type, double _money)
         {
             int value = (int)_type;
 
-            if ((int)_type >= _money)
+            if ((int)_type > _money)
                 throw new Exception("Not enough money!");
 
             this.cash += _money;
@@ -135,9 +135,11 @@ namespace CPZ_1
             this.take_from_bank(ref this.water, "Water", value + 10);
             this.take_from_bank(ref this.sugar, "Sugar" , value - 15);
             Console.WriteLine("Your coffee is ready");
+
+            return _money - value;
         }
 
-        public void make_cups(COFFE_TYPES[] _coffe, double _money)
+        public double make_cups(COFFE_TYPES[] _coffe, double _money)
         {
             double price = 0;
             foreach (int i in _coffe)
@@ -147,7 +149,9 @@ namespace CPZ_1
                 throw new Exception("Not enough money for all coffe!");
 
             foreach (COFFE_TYPES i in _coffe)
-                this.make_cup(i, _money / _coffe.Length);
+                this.make_cup(i, (int)i);
+
+            return _money - price;
         }
 
     }
