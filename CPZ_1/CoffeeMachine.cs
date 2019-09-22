@@ -33,7 +33,7 @@ namespace CPZ_1
             get { return model_name; }
             set
             {
-                if (value.Length == 0 || !is_space(value))
+                if (value.Length == 0 || !this.is_space(value))
                     throw new Exception("Value can't be empty and can't consist any spaces");
                 model_name = value;
             }
@@ -44,7 +44,7 @@ namespace CPZ_1
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException("Value must be more than 0!");
-                else if (coffee + value > max_coffee)
+                else if (this.coffee + value > max_coffee)
                     throw new Exception("Value more than max!");
                 coffee += value;
                 Console.WriteLine("Coffee stock updated successfully!");
@@ -56,9 +56,9 @@ namespace CPZ_1
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException("Value must be more than 0!");
-                else if (milk + value > max_milk)
+                else if (this.milk + value > max_milk)
                     throw new Exception("Value more than max!");
-                milk += value;
+                this.milk += value;
                 Console.WriteLine("Milk stock updated successfully!");
 
             }
@@ -69,11 +69,10 @@ namespace CPZ_1
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException("Value must be more than 0!");
-                else if (water + value > max_water)
+                else if (this.water + value > max_water)
                     throw new Exception("Value more than max!");
-                water += value;
+                this.water += value;
                 Console.WriteLine("Water stock updated successfully!");
-
             }
         }
         public double Sugar
@@ -82,16 +81,16 @@ namespace CPZ_1
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException("Value must be more than 0!");
-                else if (sugar + value > max_sugar)
+                else if (this.sugar + value > max_sugar)
                     throw new Exception("Value more than max!");
-                sugar += value;
+                this.sugar += value;
                 Console.WriteLine("Sugar stock updated successfully!");
 
             }
         }
         public double Cash
         {
-            get { return cash; }
+            get { return this.cash; }
         }
 
 
@@ -113,7 +112,7 @@ namespace CPZ_1
 
         public CoffeeMachine(string _model_name)
         {
-            ModelName = _model_name;
+            this.ModelName = _model_name;
             this.cash = 0;
 
             this.coffee = max_coffee;
